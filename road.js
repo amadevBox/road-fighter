@@ -1,19 +1,13 @@
-const roadTexture = document.getElementById('img-road')
-
 const roadWidth = 400
 
-const roadImg = roadTexture
-roadImg.src = roadTexture.src
-
+const roadImg = document.getElementById('img-road')
 class RoadPart {
   constructor(game, x, y) {
     const {
-      ctx,
       canvas: {
         width: canvasWidth,
         height: canvasHeight,
       },
-      road,
     } = game
 
     const roadX = (x !== undefined) ? x : (canvasWidth - roadWidth) / 2
@@ -79,7 +73,7 @@ const drawRoad = (game) => {
   })
 
   controlTrees(game)
-};
+}
 
 
 const getRoadWidth = () => {
@@ -102,6 +96,8 @@ const moveRoad = (game) => {
   })
 }
 
+
+const treeImg = document.getElementById('img-tree')
 class Tree {
   constructor(game) {
     const { canvas: { width: canvasWidth }} = game
@@ -114,8 +110,7 @@ class Tree {
     this.x = side === 'left' ? x : roadWidth + roadsideWidth + x
     this.y = -Tree.height
 
-    this.image = new Image()
-    this.image.src = document.getElementById('img-enemy').src
+    this.image = treeImg
   }
 
   move(game) {

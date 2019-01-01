@@ -6,24 +6,15 @@ class Car {
     this.image.src = imgSrc
   }
 
-  draw(ctx, game) {
-    const {
-      x,
-      y,
-      rotationDirection,
-    } = this
-
-    const {
-      width: pWidth,
-      height: pHeight,
-    } = Car
-
+  draw(ctx) {
+    const { x, y } = this
     ctx.drawImage(this.image, x, y, Car.width, Car.height)
     this.drawn = true
   }
 }
 Car.height = 160
 Car.width = 80
+
 
 class Enemy extends Car {
   constructor(game, imgSrc) {
@@ -38,8 +29,7 @@ class Enemy extends Car {
 
     super(x, y, imgSrc)
 
-    const circle = 1 //getCurrentCircle(game)
-    const [minSpeed, maxSpeed] =  [10, 100] //enemiesCirclesSpeedRanges[circle - 1]
+    const [minSpeed, maxSpeed] =  [10, 100]
 
     this.speed = (randomVar * (maxSpeed - minSpeed)) + minSpeed
     this.direction = randomVar < 0.33
@@ -55,8 +45,7 @@ class Enemy extends Car {
     const speed = getSpeed(game)
     this.y = this.y + (speed - this.speed)
 
-    const circle = 1//getCurrentCircle(game)
-    const shift = this.speed * 0.05 * (circle - 1)
+    const shift = this.speed * 0.05
 
     const roadWidth = getRoadWidth()
     const roadsideWidth = getRoadsideWidth(game)
@@ -107,26 +96,7 @@ Enemy.height = 160
 Enemy.width = 80
 
 
-// Player
-
 const playerImg = document.getElementById('img-player')
-const playerImg2 = document.getElementById('img-player')
-
-const car1El = document.getElementById('car1')
-const car2El = document.getElementById('car2')
-
-car1El.onclick = () => {
-  car1El.classList.add('active-car')
-  car2El.classList.remove('active-car')
-  Player.image.src = playerImg
-}
-
-car2El.onclick = () => {
-  car2El.classList.add('active-car')
-  car1El.classList.remove('active-car')
-  Player.image.src = playerImg2
-}
-
 class Player extends Car {
   constructor(x = 300, y = 400) {
     super(x, y)
@@ -228,13 +198,10 @@ class Player extends Car {
 Player.height = 160
 Player.width = 80
 Player.rotationDeg = 10
-
-Player.image = document.getElementById('img-enemy')
-
+Player.image = playerImg
 
 
 const explosprite = document.getElementById('img-explosprite')
-
 const FRAME_SIZE = 128
 
 class Explosion {

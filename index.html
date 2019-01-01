@@ -18,45 +18,6 @@
       margin: 0 auto;
     }
 
-    .wrapper {
-      position: relative;
-    }
-
-    .map-wrapper {
-      position: absolute;
-      left: 50px;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 300px;
-      width: 40px;
-      background-color: #4a4a4a;
-    }
-
-    .map-wrapper #road {
-      display: relative;
-      margin: 3px;
-      width: calc(100% - 10px);
-      height: calc(100% - 10px);
-      border-left: 2px solid #d1bb59;
-      border-right: 2px solid #d1bb59;
-    }
-
-    .map-wrapper #road img {
-      position: absolute;
-      bottom: 0%;
-      left: 3px;
-    }
-
-    .circle-info {
-      position: absolute;
-      transform: translateY(-100%);
-      text-align: center;
-    }
-
-    #circle-number {
-      font-size: 80px;
-    }
-
     .speed-wrapper {
       position: absolute;
       right: 40px;
@@ -83,30 +44,6 @@
       font-size: 18px;
     }
 
-    .cars-wrapper {
-      position: absolute;
-      top: 0;
-      right: 40px;
-      font-size: 18px;
-      margin: 15px;
-      text-align: center;
-    }
-
-    .cars-wrapper .cars {
-      display: flex;
-      justify-content: center;
-    }
-
-    .cars-wrapper .cars > div {
-      margin: 5px;
-      border: 2px solid transparent;
-      cursor: pointer;
-    }
-
-    .active-car {
-      border: 2px solid red !important;
-    }
-
     .sources {
       display: none;
     }
@@ -117,32 +54,12 @@
     <img id="img-player" src="assets/car.png" alt="">
     <img id="img-road" src="assets/road.jpg" alt="">
     <img id="img-enemy" src="assets/enemy.png" alt="">
+    <img id="img-tree" src="assets/tree.png" alt="">
     <img id="img-explosprite" src="assets/explosprite.png" alt="">
   </div>
   <div id="app">
     <div class="wrapper">
-      <div class="map-wrapper">
-        <div class="circle-info">
-          <div id="circle-number">1</div>
-          <div class="circle-title">Circle</div>
-        </div>
-        <div id="road">
-          <img id="car-icon" src="assets/car-icon.png" />
-        </div>
-        <div class="circles"></div>
-      </div>
       <canvas id="canvas"></canvas>
-      <div class="cars-wrapper">
-        <div>Choose the cars view:</div>
-        <div class="cars">
-          <div id="car1" class="active-car">
-            <img width="50px" src="assets/car.png" />
-          </div>
-          <div id="car2">
-            <img width="50px" src="assets/car2.png" />
-          </div>
-        </div>
-      </div>
       <div class="speed-wrapper">
         <div class="speed-info">
           <div id="speed"></div>
@@ -152,7 +69,7 @@
     </div>
   </div>
   <script src="config.js" defer></script>
-  <script src="car.js" defer></script>
+  <script src="actors.js" defer></script>
   <script src="helpers.js" defer></script>
   <script src="road.js" defer></script>
   <script src="index.js" defer></script>

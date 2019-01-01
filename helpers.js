@@ -41,7 +41,6 @@ const getCanvasProps = (game) => {
 }
 
 // objects generation
-
 const enemyImg = document.getElementById('img-enemy').src
 const { maxEnemiesNumber, probabilityOfEnemyCreation } = config
 const controlEnemies = (game) => {
@@ -79,7 +78,6 @@ const controlEnemies = (game) => {
 }
 
 // trees
-
 const { maxTreesNumber, probabilityOfTreeCreation } = config
 const controlTrees = (game) => {
   const { objects: { trees }, ctx } = game
@@ -97,7 +95,6 @@ const controlTrees = (game) => {
 }
 
 // explosions
-
 const controlExplosions = (game) => {
   const { objects: { explosions }, ctx } = game
 
@@ -114,7 +111,6 @@ const controlExplosions = (game) => {
 
 
 // speed controller
-
 const acceleration = 10
 
 const MAX_SPEED = 100
@@ -146,7 +142,6 @@ const updateSpeed = (game, newSpeed) => {
 
   const interval = setInterval(() => {
     const activePedal = getActiveControlType(game, 'pedals')
-    const activeTurn = getActiveControlType(game, 'turn')
 
     let newSpeed
     if (initialActivePedal === 'gas') {
@@ -243,14 +238,9 @@ const getTurnState = (game, turnType) => {
 }
 
 
-// 
-
+// output helper
+const speedEl = document.getElementById('speed')
 const outputCurrentInfo = (game) => {
   const speed = getSpeed(game)
-  outputSpeed(speed)
-}
-
-const speedEl = document.getElementById('speed')
-const outputSpeed = (speed) => {
   speedEl.innerHTML = Number(speed).toFixed(1)
 }
